@@ -1,38 +1,29 @@
 # NodeWords
 
-NodeWords is a client-side vocabulary testing tool for distributed application terminology. It models two independent request/response paths:
+NodeWords on kliendipoolne sõnavara testimise tööriist hajussüsteemide terminoloogia jaoks. See mudeldab kahte sõltumatut päringu/vastuse suunda:
+- **Olemasolev versioon:** eestikeelne vihje ootab venekeelset vastust.
+- **Pöördversioon:** venekeelne vihje ootab eestikeelset vastust.
 
-- **Existing version:** an Estonian prompt expects a Russian response.
-- **Reverse version:** a Russian prompt expects an Estonian response.
+Sõnavara andmed salvestatakse kohalikult failis `script.js` ning iga lehe värskendamine valib kummagi suuna jaoks uue vihje. Eraldi ehitusetappi (build step) ega serveri sõltuvust ei ole: ava fail `index.html` otse või serveeri kausta mis tahes staatilise veebiserveriga.
 
-The vocabulary payload is stored locally in `script.js`, and each refresh selects a new prompt for each direction. There is no build step or server dependency: open `index.html` directly or serve the folder with any static web server.
+## Arendusharu
 
-## Development branch
+Arendusharu (branch) on `feature/estonian-russian-vocabulary-testing`. Avaldatud vaikeharu on `main`.
 
-The implementation branch is `feature/estonian-russian-vocabulary-testing`.
-The published default branch is `main`.
+## GitHubi ja LiteTrackeri üleandmine
 
-## GitHub and LiteTracker handoff
-
-After adding the GitHub remote, push this branch with:
+Pärast GitHubi kaugrepositooriumi (remote) lisamist lükka see haru üles käsuga:
 
 ```powershell
 git push -u origin feature/estonian-russian-vocabulary-testing
 ```
 
-To publish the current stable version on `main`, use:
+Praeguse stabiilse versiooni avaldamiseks `main`-harus kasuta käsku:
 
 ```powershell
 git push -u origin main
 ```
 
-In the corresponding LiteTracker story, add the GitHub repository URL and this exact branch name. Verify the link opens the repository with the branch selector set to `feature/estonian-russian-vocabulary-testing`.
+Märgi vastavas LiteTrackeri loos ära GitHubi repositooriumi URL ja täpne haru nimi. Veendu, et link avab repositooriumi nii, et haru valikuks on määratud `feature/estonian-russian-vocabulary-testing`.
 
-For webhook-based activity tracking, configure the LiteTracker webhook to listen to push events from this repository. Each pushed commit contains its commit message, branch name, author, and changed files for the integration to display.
-
-## Testing checklist
-
-1. Open `index.html` in a browser.
-2. Confirm both columns receive prompts and refresh independently.
-3. Enter the displayed translation in each direction and check that the success/error response is local to that column.
-4. Confirm the Enter key submits each input and that the layout remains usable on a narrow viewport.
+Veebikonksupõhise (webhook) tegevuste jälgimise seadistamiseks konfigureeri LiteTrackeri veebikonks kuulama selle repositooriumi `push`-sündmusi. Iga üleslükatud kohustus (commit) sisaldab oma commitsõnumit, haru nime, autorit ja muudetud faile, mida integratsioon kuvab.
