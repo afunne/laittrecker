@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A two-way Estonian and Russian vocabulary testing tool for distributed application teams."
+    />
+    <title>NodeWords | Estonian-Russian Vocabulary Lab</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">DISTRIBUTED APPLICATIONS / LANGUAGE LAYER</p>
+          <h1>NodeWords</h1>
+          <p class="hero-copy">
+            Build vocabulary confidence across every client node. Test Estonian to Russian,
+            then reverse the request and validate the response.
+          </p>
+        </div>
+        <div class="node-status" aria-label="Application status">
+          <span class="status-dot"></span>
+          <span>Local node online</span>
+        </div>
+      </header>
+
+      <section class="workspace" aria-labelledby="test-heading">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">REQUEST / RESPONSE TESTING</p>
+            <h2 id="test-heading">Translation routing table</h2>
+          </div>
+          <button class="refresh-button" id="refresh-button" type="button">
+            <span aria-hidden="true">↻</span> Refresh words
+          </button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <caption>
+              Test both translation directions independently, like two services exchanging payloads.
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Existing version <span>ET → RU</span></th>
+                <th scope="col">Reverse version <span>RU → ET</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <article class="test-card" data-direction="estonian-to-russian">
+                    <div class="word-label">Estonian prompt</div>
+                    <div class="prompt" id="estonian-prompt">...</div>
+                    <label for="russian-answer">Russian equivalent</label>
+                    <div class="answer-row">
+                      <input id="russian-answer" type="text" autocomplete="off" placeholder="Type the response" />
+                      <button class="check-button" data-check="estonian-to-russian" type="button">Check</button>
+                    </div>
+                    <p class="feedback" id="russian-feedback" aria-live="polite"></p>
+                  </article>
+                </td>
+                <td>
+                  <article class="test-card" data-direction="russian-to-estonian">
+                    <div class="word-label">Russian prompt</div>
+                    <div class="prompt prompt-cyrillic" id="russian-prompt">...</div>
+                    <label for="estonian-answer">Estonian equivalent</label>
+                    <div class="answer-row">
+                      <input id="estonian-answer" type="text" autocomplete="off" placeholder="Type the response" />
+                      <button class="check-button" data-check="russian-to-estonian" type="button">Check</button>
+                    </div>
+                    <p class="feedback" id="estonian-feedback" aria-live="polite"></p>
+                  </article>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="footer-note">
+          <span>Transport note</span>
+          <p>Each prompt is generated locally from a shared vocabulary payload. No network round trip is required.</p>
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
