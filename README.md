@@ -10,6 +10,7 @@ The vocabulary payload is stored locally in `script.js`, and each refresh select
 ## Development branch
 
 The implementation branch is `feature/estonian-russian-vocabulary-testing`.
+The published default branch is `main`.
 
 ## GitHub and LiteTracker handoff
 
@@ -19,7 +20,15 @@ After adding the GitHub remote, push this branch with:
 git push -u origin feature/estonian-russian-vocabulary-testing
 ```
 
+To publish the current stable version on `main`, use:
+
+```powershell
+git push -u origin main
+```
+
 In the corresponding LiteTracker story, add the GitHub repository URL and this exact branch name. Verify the link opens the repository with the branch selector set to `feature/estonian-russian-vocabulary-testing`.
+
+For webhook-based activity tracking, configure the LiteTracker webhook to listen to push events from this repository. Each pushed commit contains its commit message, branch name, author, and changed files for the integration to display.
 
 ## Testing checklist
 

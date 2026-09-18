@@ -45,7 +45,7 @@ function refreshPrompts() {
 // Show a concise result beside the input, keeping validation feedback local to its column.
 function showFeedback(element, isCorrect, expected) {
   element.className = `feedback ${isCorrect ? 'success' : 'error'}`;
-  element.textContent = isCorrect ? 'Correct response. Payload accepted.' : `Not quite. Expected: ${expected}`;
+  element.textContent = isCorrect ? 'Õige vastus. Payload on vastu võetud.' : `Veel mitte. Oodatud: ${expected}`;
 }
 
 // Validate one direction against the matching vocabulary property.
